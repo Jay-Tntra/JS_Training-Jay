@@ -6,39 +6,44 @@ const cart_list = document.getElementById("cart_list");
 const calculate = document.getElementById("calculate");
 const calculatedResult = document.getElementById("calculatedResult");
 
-const fetchProducts = async ()=>{
-  try{
+const fetchProducts = async () => {
+  try {
     const response = await fetch('https://fakestoreapi.com/products?limit=10');
     const data = await response.json();
 
     products = data;
-    
-    products.forEach((product)=>{
+
+    products.forEach((product) => {
       product.quantity = 0
     })
     renderProducts();
   }
-  catch(e){
+  catch (e) {
     console.log(e);
   }
 }
 
-const renderProducts = ()=>{
+const renderProducts = () => {
   for (let i = 0; i < products.length; i++) {
-  const listElement = document.createElement("li");
+    const listElement = document.createElement("li");
 
-  listElement.innerHTML = `<p>${products[i].title}</p>
+    listElement.innerHTML = `<p>${products[i].title}</p>
         <p>${products[i].price}</p>
         <button>Add to cart</button>
         <img src=${products[i].image} width="50" height="50"/>`;
 
-  const btn = listElement.querySelector("button");
-  btn.addEventListener("click", () => {
-    moveToCart(products[i].id);
-  });
+    const btn = listElement.querySelector("button");
+    btn.addEventListener("click", () => {
+      moveToCart(products[i].id);
+    });
+    btn.addEventListener("click", () => {
+      let colors = ["#28a745", "#007bff", "#ffc107", "#17a2b8", "#6f42c1"];
+      let randomColor = colors[Math.floor(Math.random() * colors.length)];
+      btn.style.backgroundColor = randomColor;
+    });
 
-  product_list.appendChild(listElement);
-}
+    product_list.appendChild(listElement);
+  }
 }
 
 const moveToCart = (num) => {
@@ -69,7 +74,7 @@ const moveToCart = (num) => {
 };
 
 const renderCart = () => {
-  cart_list.innerHTML = ""; 
+  cart_list.innerHTML = "";
 
   for (let i = 0; i < cartArray.length; i++) {
     const cartElement = document.createElement("li");
