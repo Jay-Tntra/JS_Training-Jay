@@ -48,3 +48,64 @@ Highest Score: Parth (95)
 Lowest Score: Het (49)
 Grade Distribution: { A: 1, B: 3, C: 2, D: 1, F: 3 }
 Students needing retake: [ 'Varun', 'Het' ]
+
+
+# Day 2
+
+🛒 Shopping Cart Application
+
+This project is a simple shopping cart web application built using HTML, CSS, and JavaScript.
+It fetches real product data from an online API, displays it in a clean card layout, and allows users to add products to a cart, view totals, and apply discounts automatically.
+
+🔹 What the Program Does
+
+Fetches a list of products from the Fake Store API (https://fakestoreapi.com/).
+
+Displays each product in a box with its:
+
+Image
+
+Title
+
+Price
+
+“Add to Cart” button
+
+Allows users to add products to the cart dynamically.
+
+Updates quantity automatically if the same product is added multiple times.
+
+Calculates:
+
+Subtotal → Total of (price × quantity)
+
+Quantity Discount (10%) → Applied if total quantity > 10
+
+Price Discount (5%) → Applied if subtotal > $500 (after quantity discount)
+
+Final Total → Subtotal – both discounts
+
+Displays a full breakdown of totals and discounts.
+
+🔹 Functions Used
+
+fetchProducts() → Fetches product data from the Fake Store API.
+
+renderProducts() → Displays all products in styled boxes with an Add button.
+
+moveToCart(id) → Adds the selected product to the cart or increases its quantity.
+
+renderCart() → Displays all cart items with image, price, and quantity.
+
+calculateDiscount() → Applies both discounts and calculates the final total.
+
+printResult() → Displays subtotal, discounts, and final total neatly on the screen.
+
+🔹 Example Output
+
+```bash
+Subtotal: $950
+Quantity Discount (10%): -$95
+Price Discount (5%): -$42.75
+Final Total: $812.25
+```
