@@ -43,12 +43,13 @@ getRetakeList() → Lists students who scored below 60.
 gradeAnalyzer() → Calls all the above functions and prints the results.
 
 🔹 Example Output
+```bash
 Average Score: 78.2
 Highest Score: Parth (95)
 Lowest Score: Het (49)
 Grade Distribution: { A: 1, B: 3, C: 2, D: 1, F: 3 }
 Students needing retake: [ 'Varun', 'Het' ]
-
+```
 
 # Day 2
 
