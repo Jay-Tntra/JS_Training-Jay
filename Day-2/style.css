@@ -16,7 +16,6 @@ h1 {
   color: #333;
 }
 
-/* Product List Container */
 #product_list {
   display: flex;
   flex-wrap: wrap;
@@ -25,7 +24,6 @@ h1 {
   margin-bottom: 30px;
 }
 
-/* Each Product Box */
 #product_list li {
   width: 220px;
   background-color: #fff;
@@ -41,7 +39,6 @@ h1 {
   transform: scale(1.03);
 }
 
-/* Product Image */
 #product_list li img {
   width: 100px;
   height: 100px;
@@ -49,7 +46,6 @@ h1 {
   margin-bottom: 10px;
 }
 
-/* Product Text */
 #product_list li p {
   margin: 5px 0;
   color: #333;
@@ -57,7 +53,6 @@ h1 {
   font-weight: 500;
 }
 
-/* Add to Cart Button */
 #product_list li button {
   background-color: #007bff;
   color: white;
@@ -72,14 +67,12 @@ h1 {
   background-color: #0056b3;
 }
 
-/* Cart Section */
 h3 {
   text-align: center;
   margin-top: 30px;
   color: #333;
 }
 
-/* Cart List Container */
 #cart_list {
   display: flex;
   flex-wrap: wrap;
@@ -88,7 +81,6 @@ h3 {
   margin: 15px 0;
 }
 
-/* Each Cart Item Box */
 #cart_list li {
   width: 220px;
   background-color: #fff;
@@ -99,7 +91,6 @@ h3 {
   list-style: none;
 }
 
-/* Cart Item Image */
 #cart_list li img {
   width: 80px;
   height: 80px;
@@ -107,13 +98,11 @@ h3 {
   margin-bottom: 8px;
 }
 
-/* Cart Text */
 #cart_list li p {
   margin: 5px 0;
   font-size: 14px;
 }
 
-/* Calculate Button */
 #calculate {
   display: block;
   margin: 0 auto;
@@ -131,7 +120,6 @@ h3 {
   background-color: darkgreen;
 }
 
-/* Result Box */
 #calculatedResult {
   background-color: #fff;
   width: 300px;
