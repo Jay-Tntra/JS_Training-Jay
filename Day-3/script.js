@@ -4,14 +4,14 @@ const themeToggle = document.getElementById('themeToggle');
 let dataList = [];
 
 
-form.addEventListener('submit', function (event) {
+form.addEventListener('submit', (event) => {
   event.preventDefault();
-
+  
   const errorElements = document.querySelectorAll('.error');
-  errorElements.forEach(function (el) {
+  errorElements.forEach((el) => {
     el.textContent = "";
   });
-
+  
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
   const age = document.getElementById('age').value.trim();
@@ -21,23 +21,23 @@ form.addEventListener('submit', function (event) {
   const country = document.getElementById('country').value;
 
   const hobbies = [];
-  hobbyElements.forEach(function (h) {
+  hobbyElements.forEach((h) => {
     hobbies.push(h.value);
   });
 
   let valid = true;
-
+  
   if (name.length < 2 || name.length > 50) {
     document.getElementById('nameError').textContent = "Name must be between 2 and 50 characters.";
     valid = false;
   }
-
+  
   const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
   if (!emailPattern.test(email)) {
     document.getElementById('emailError').textContent = "Enter a valid email (ex: john@example.com).";
     valid = false;
   }
-
+  
   if (isNaN(age) || age < 1 || age > 120) {
     document.getElementById('ageError').textContent = "Age must be between 1 and 120.";
     valid = false;
@@ -59,7 +59,7 @@ form.addEventListener('submit', function (event) {
     document.getElementById('hobbiesError').textContent = "Select at least one hobby.";
     valid = false;
   }
-
+  
   if (!country) {
     document.getElementById('countryError').textContent = "Please select a country.";
     valid = false;
@@ -69,7 +69,7 @@ form.addEventListener('submit', function (event) {
     return;
   }
 
-
+  
   const userData = {
     name: name,
     email: email,
@@ -79,17 +79,18 @@ form.addEventListener('submit', function (event) {
     hobbies: hobbies,
     country: country
   };
-
+  
   dataList.push(userData);
-
+  
   jsonDisplay.textContent = JSON.stringify(dataList, null, 4);
-
+  
   localStorage.setItem('userDataList', JSON.stringify(dataList));
-
+  
   form.reset();
+  alert("Form Submitted Successfully!");
 });
 
-themeToggle.addEventListener('click', function () {
+themeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark');
 
   if (document.body.classList.contains('dark')) {
@@ -99,7 +100,7 @@ themeToggle.addEventListener('click', function () {
   }
 });
 
-window.addEventListener('load', function () {
+window.addEventListener('load', () => {
   const savedData = localStorage.getItem('userDataList');
   if (savedData) {
     dataList = JSON.parse(savedData);
