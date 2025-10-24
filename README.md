@@ -158,8 +158,6 @@ Required fields checked
 | Function                                | Purpose                                          |
 | --------------------------------------- | ------------------------------------------------ |
 | `displayData()`                         | Renders all stored data dynamically on the page. |
-| `deleteUser(index)`                     | Removes a user record based on array index.      |
-| `editUser(index)`                       | Loads selected user info back into form inputs.  |
 | `localStorage.setItem()`                | Saves updated data permanently.                  |
 | `localStorage.getItem()`                | Retrieves stored data on page load.              |
 | `form.addEventListener('submit')`       | Validates and submits form data.                 |
