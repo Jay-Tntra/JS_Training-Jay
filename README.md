@@ -110,3 +110,75 @@ Quantity Discount (10%): -$95
 Price Discount (5%): -$42.75
 Final Total: $812.25
 ```
+
+# Day 3
+
+🧾 Dynamic Form Data Manager
+
+This web application allows users to input personal information using a dynamic HTML form. Submitted data is validated, stored, displayed in real time, and saved permanently using localStorage.
+
+🔹 What the Program Does
+
+✔️ Collects user information through a form:
+
+Name
+
+Email
+
+Age
+
+Date of Birth
+
+Gender
+
+Hobbies
+
+Country
+
+✔️ Validates user input with conditions like:
+
+Proper name length
+
+Valid email format
+
+Age range (1–120)
+
+No future date of birth
+
+Required fields checked
+
+✔️ Converts submitted data into structured JSON and displays it instantly on the page.
+
+✔️ Saves all entries locally using localStorage (persists even after browser shutdown).
+
+✔️ Offers Light/Dark Theme Toggle, and stores theme preference in localStorage.
+
+🔹 Functional Used
+
+| Function                                | Purpose                                          |
+| --------------------------------------- | ------------------------------------------------ |
+| `displayData()`                         | Renders all stored data dynamically on the page. |
+| `deleteUser(index)`                     | Removes a user record based on array index.      |
+| `editUser(index)`                       | Loads selected user info back into form inputs.  |
+| `localStorage.setItem()`                | Saves updated data permanently.                  |
+| `localStorage.getItem()`                | Retrieves stored data on page load.              |
+| `form.addEventListener('submit')`       | Validates and submits form data.                 |
+| `themeToggle.addEventListener('click')` | Switches theme and stores preference.            |
+
+
+🔹 Example Output
+
+``` json
+[
+    {
+        "name": "Rahul",
+        "email": "rahul@example.com",
+        "age": 21,
+        "dob": "2004-04-12",
+        "gender": "male",
+        "hobbies": ["reading", "gaming"],
+        "country": "India"
+    }
+]
+
+```

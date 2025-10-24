@@ -38,7 +38,8 @@ label {
   font-weight: bold;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -51,7 +52,8 @@ input, select {
   font-size: 0.9em;
 }
 
-.checkbox-group, .radio-group {
+.checkbox-group,
+.radio-group {
   margin-top: 5px;
 }
 
@@ -85,6 +87,7 @@ pre {
   margin: 30px auto 0;
   border: 1px solid #ccc;
 }
+
 #jsonDisplay {
   max-height: 300px;
   overflow-y: auto;

@@ -6,12 +6,12 @@ let dataList = [];
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  
+
   const errorElements = document.querySelectorAll('.error');
   errorElements.forEach((el) => {
     el.textContent = "";
   });
-  
+
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
   const age = document.getElementById('age').value.trim();
@@ -26,18 +26,18 @@ form.addEventListener('submit', (event) => {
   });
 
   let valid = true;
-  
+
   if (name.length < 2 || name.length > 50) {
     document.getElementById('nameError').textContent = "Name must be between 2 and 50 characters.";
     valid = false;
   }
-  
+
   const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
   if (!emailPattern.test(email)) {
     document.getElementById('emailError').textContent = "Enter a valid email (ex: john@example.com).";
     valid = false;
   }
-  
+
   if (isNaN(age) || age < 1 || age > 120) {
     document.getElementById('ageError').textContent = "Age must be between 1 and 120.";
     valid = false;
@@ -59,7 +59,7 @@ form.addEventListener('submit', (event) => {
     document.getElementById('hobbiesError').textContent = "Select at least one hobby.";
     valid = false;
   }
-  
+
   if (!country) {
     document.getElementById('countryError').textContent = "Please select a country.";
     valid = false;
@@ -69,7 +69,7 @@ form.addEventListener('submit', (event) => {
     return;
   }
 
-  
+
   const userData = {
     name: name,
     email: email,
@@ -79,13 +79,13 @@ form.addEventListener('submit', (event) => {
     hobbies: hobbies,
     country: country
   };
-  
+
   dataList.push(userData);
-  
+
   jsonDisplay.textContent = JSON.stringify(dataList, null, 4);
-  
+
   localStorage.setItem('userDataList', JSON.stringify(dataList));
-  
+
   form.reset();
   alert("Form Submitted Successfully!");
 });
@@ -95,15 +95,26 @@ themeToggle.addEventListener('click', () => {
 
   if (document.body.classList.contains('dark')) {
     themeToggle.textContent = "Switch to Light Theme";
+    localStorage.setItem("theme", "dark");
   } else {
     themeToggle.textContent = "Switch to Dark Theme";
+    localStorage.setItem("theme", "light");
   }
 });
 
 window.addEventListener('load', () => {
   const savedData = localStorage.getItem('userDataList');
+  const savedTheme = localStorage.getItem("theme");
+  
   if (savedData) {
     dataList = JSON.parse(savedData);
     jsonDisplay.textContent = JSON.stringify(dataList, null, 4);
+  }
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+    themeToggle.textContent = "Switch to Light Theme";
+  } else {
+    themeToggle.textContent = "Switch to Dark Theme";
   }
 });
